@@ -1,0 +1,35 @@
+<div class="image-cropper-container">
+  <h2 class="image-cropper-title">Angular Image Cropper Test</h2>
+  <div class="button-group">
+    <label class="btn btn-secondary">
+      Select an image
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        accept="image/jpeg,image/png"
+        hidden
+      />
+    </label>
+    <button
+      class="btn btn-primary"
+      [disabled]="!isImageLoaded"
+      (click)="saveCroppedImage()"
+    >
+      Save
+    </button>
+  </div>
+  <div class="canvas-container">
+    <canvas #canvas></canvas>
+    <div class="crop-outline"></div>
+  </div>
+  <div class="slider-container">
+    <input
+      type="range"
+      min="0"
+      max="100"
+      step="1"
+      [(ngModel)]="sliderValue"
+      (input)="onSliderChange($event)"
+    />
+  </div>
+</div>
